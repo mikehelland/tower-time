@@ -1,114 +1,149 @@
-"use strict";
-
+const _0x1f7a = [
+  "smallestAdjacentIndex",
+  "push",
+  "rgba(184,\x2012,\x200,\x200.8)",
+  "cancelled",
+  "rgba(87,\x2095,\x20139,\x200.8)",
+  "length",
+  "start",
+  "goal",
+  "attackSlow",
+  "fillRect",
+  "occupied",
+  "game",
+  "rgba(255,\x20255,\x20255,\x200.8)",
+  "fillStyle",
+  "center",
+  "size",
+  "col",
+  "context",
+  "rgba(150,\x20151,\x20129,\x200.06)",
+  "cellSize",
+  "location",
+  "run",
+  "attackDamage",
+  "getShortestRoute",
+  "adjacent",
+  "smallestAdjacent",
+  "render",
+  "cancel",
+  "value",
+  "row",
+  "grid",
+  "attacked"
+];
+(function(_0x32876, _0x1f7ac1) {
+  const _0x3028fe = function(_0x1f75e8) {
+    while (--_0x1f75e8) {
+      _0x32876["push"](_0x32876["shift"]());
+    }
+  };
+  _0x3028fe(++_0x1f7ac1);
+})(_0x1f7a, 0x64);
+const _0x3028 = function(_0x32876, _0x1f7ac1) {
+  _0x32876 = _0x32876 - 0x0;
+  let _0x3028fe = _0x1f7a[_0x32876];
+  return _0x3028fe;
+};
+("use strict");
 class Cell {
-  constructor(game, id, col, row) {
-    this.id = id;
-    this.location = new Vector(col * game.cellSize, row * game.cellSize);
-    this.center = new Vector(
-      this.location.x + game.cellSize / 2,
-      this.location.y + game.cellSize / 2
-    );
-    this.game = game;
-    this.context = game.context;
-    this.size = game.cellSize;
-    this.col = col;
-    this.row = row;
-
-    // path finding
-    this.adjacent = [];
-    this.value = -1;
-    this.smallestAdjacent = null;
-    this.smallestAdjacentIndex = 0;
-    this.cancelled = false;
-
-    // check state
-    this.occupied = false;
-    this.attacked = false;
-    this.attackDamage = null;
-    this.attackSlow = false;
+  constructor(_0x53f16b, _0x1d4096, _0x5e581f, _0xecfdbe) {
+    (this["id"] = _0x1d4096),
+      (this[_0x3028("0x10")] = new Vector(
+        _0x5e581f * _0x53f16b[_0x3028("0xf")],
+        _0xecfdbe * _0x53f16b[_0x3028("0xf")]
+      )),
+      (this[_0x3028("0xa")] = new Vector(
+        this[_0x3028("0x10")]["x"] + _0x53f16b[_0x3028("0xf")] / 0x2,
+        this[_0x3028("0x10")]["y"] + _0x53f16b[_0x3028("0xf")] / 0x2
+      )),
+      (this[_0x3028("0x7")] = _0x53f16b),
+      (this[_0x3028("0xd")] = _0x53f16b[_0x3028("0xd")]),
+      (this[_0x3028("0xb")] = _0x53f16b["cellSize"]),
+      (this[_0x3028("0xc")] = _0x5e581f),
+      (this[_0x3028("0x19")] = _0xecfdbe),
+      (this[_0x3028("0x14")] = []),
+      (this[_0x3028("0x18")] = -0x1),
+      (this[_0x3028("0x15")] = null),
+      (this[_0x3028("0x1c")] = 0x0),
+      (this[_0x3028("0x1f")] = !0x1),
+      (this[_0x3028("0x6")] = !0x1),
+      (this["attacked"] = !0x1),
+      (this[_0x3028("0x12")] = null),
+      (this[_0x3028("0x4")] = !0x1);
   }
-
-  loadAdjacentCells() {
-    const grid = this.game.grid;
-
-    //up
-    if (
-      this.row > 0 &&
-      !this.occupied &&
-      !grid[this.col][this.row - 1].occupied
-    ) {
-      this.adjacent.push(grid[this.col][this.row - 1]);
-    }
-    //right
-    if (
-      this.col < grid.length - 1 &&
-      !this.occupied &&
-      !grid[this.col + 1][this.row].occupied
-    ) {
-      this.adjacent.push(grid[this.col + 1][this.row]);
-    }
-    //down
-    if (
-      this.row < grid[this.col].length - 1 &&
-      !this.occupied &&
-      !grid[this.col][this.row + 1].occupied
-    ) {
-      this.adjacent.push(grid[this.col][this.row + 1]);
-    }
-    //left
-    if (
-      this.col > 0 &&
-      !this.occupied &&
-      !grid[this.col - 1][this.row].occupied
-    ) {
-      this.adjacent.push(grid[this.col - 1][this.row]);
-    }
+  ["loadAdjacentCells"]() {
+    const _0x3fa1b7 = this[_0x3028("0x7")][_0x3028("0x1a")];
+    this[_0x3028("0x19")] > 0x0 &&
+      !this[_0x3028("0x6")] &&
+      !_0x3fa1b7[this[_0x3028("0xc")]][this[_0x3028("0x19")] - 0x1][
+        _0x3028("0x6")
+      ] &&
+      this[_0x3028("0x14")]["push"](
+        _0x3fa1b7[this["col"]][this[_0x3028("0x19")] - 0x1]
+      ),
+      this[_0x3028("0xc")] < _0x3fa1b7["length"] - 0x1 &&
+        !this["occupied"] &&
+        !_0x3fa1b7[this["col"] + 0x1][this["row"]][_0x3028("0x6")] &&
+        this["adjacent"][_0x3028("0x1d")](
+          _0x3fa1b7[this["col"] + 0x1][this[_0x3028("0x19")]]
+        ),
+      this[_0x3028("0x19")] <
+        _0x3fa1b7[this[_0x3028("0xc")]][_0x3028("0x1")] - 0x1 &&
+        !this[_0x3028("0x6")] &&
+        !_0x3fa1b7[this[_0x3028("0xc")]][this[_0x3028("0x19")] + 0x1][
+          _0x3028("0x6")
+        ] &&
+        this[_0x3028("0x14")][_0x3028("0x1d")](
+          _0x3fa1b7[this[_0x3028("0xc")]][this[_0x3028("0x19")] + 0x1]
+        ),
+      this["col"] > 0x0 &&
+        !this[_0x3028("0x6")] &&
+        !_0x3fa1b7[this[_0x3028("0xc")] - 0x1][this[_0x3028("0x19")]][
+          "occupied"
+        ] &&
+        this[_0x3028("0x14")][_0x3028("0x1d")](
+          _0x3fa1b7[this[_0x3028("0xc")] - 0x1][this[_0x3028("0x19")]]
+        );
   }
-
-  getShortestRoute() {
-    let smallest = 10000;
-    for (let i = 0; i < this.adjacent.length; i++) {
-      if (this.adjacent[i].value < smallest) {
-        smallest = this.adjacent[i].value;
-        this.smallestAdjacentIndex = i;
-      }
-    }
-    this.smallestAdjacent = this.adjacent[this.smallestAdjacentIndex];
+  [_0x3028("0x13")]() {
+    let _0x1bd683 = 0x2710;
+    for (
+      let _0x37dcb9 = 0x0;
+      _0x37dcb9 < this[_0x3028("0x14")][_0x3028("0x1")];
+      _0x37dcb9++
+    )
+      this[_0x3028("0x14")][_0x37dcb9][_0x3028("0x18")] < _0x1bd683 &&
+        ((_0x1bd683 = this["adjacent"][_0x37dcb9]["value"]),
+        (this[_0x3028("0x1c")] = _0x37dcb9));
+    this[_0x3028("0x15")] = this[_0x3028("0x14")][
+      this["smallestAdjacentIndex"]
+    ];
   }
-
-  cancel() {
-    this.cancelled = true;
-    setTimeout(() => (this.cancelled = false), 100);
+  [_0x3028("0x17")]() {
+    (this[_0x3028("0x1f")] = !0x0),
+      setTimeout(() => (this[_0x3028("0x1f")] = !0x1), 0x64);
   }
-
-  run() {
-    this.render();
-    setTimeout(() => (this.attacked = false), 500);
+  [_0x3028("0x11")]() {
+    this[_0x3028("0x16")](),
+      setTimeout(() => (this[_0x3028("0x1b")] = !0x1), 0x1f4);
   }
-
-  render() {
-    if (this === tt.goal) {
-      this.context.fillStyle = "rgba(184, 12, 0, 0.8)";
-    } else if (this === tt.start) {
-      this.context.fillStyle = "rgba(87, 95, 139, 0.8)";
-    } else if (this.occupied) {
-      this.context.fillStyle = "rgba(224, 224, 224, 0.6)";
-    } else if (this.cancelled) {
-      this.context.fillStyle = "rgba(255, 255, 255, 0.8)";
-    } else {
-      this.context.fillStyle = "rgba(150, 151, 129, 0.06)";
-    }
-
-    this.context.fillRect(
-      this.location.x,
-      this.location.y,
-      this.size,
-      this.size
-    );
-    // this.context.strokeStyle = "#333333"
-    // this.context.strokeRect(this.location.x, this.location.y, this.size, this.size)
-    // this.context.font = "15px Aerial"
-    // this.context.fillStyle = "#333333"
-    // this.context.fillText(this.value, this.location.x + 5, this.location.y + 10)
+  [_0x3028("0x16")]() {
+    this === tt[_0x3028("0x3")]
+      ? (this[_0x3028("0xd")][_0x3028("0x9")] = _0x3028("0x1e"))
+      : this === tt[_0x3028("0x2")]
+      ? (this[_0x3028("0xd")][_0x3028("0x9")] = _0x3028("0x0"))
+      : this[_0x3028("0x6")]
+      ? (this[_0x3028("0xd")][_0x3028("0x9")] =
+          "rgba(224,\x20224,\x20224,\x200.6)")
+      : this[_0x3028("0x1f")]
+      ? (this[_0x3028("0xd")][_0x3028("0x9")] = _0x3028("0x8"))
+      : (this[_0x3028("0xd")][_0x3028("0x9")] = _0x3028("0xe")),
+      this[_0x3028("0xd")][_0x3028("0x5")](
+        this[_0x3028("0x10")]["x"],
+        this[_0x3028("0x10")]["y"],
+        this[_0x3028("0xb")],
+        this[_0x3028("0xb")]
+      );
   }
 }
