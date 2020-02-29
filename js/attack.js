@@ -1,62 +1,82 @@
-"use strict";
-
-class Attack {
-  constructor(location, angle, atkImg, type, damage, speed) {
-    this.location = location.copy();
-    this.angle = angle;
-    this.radius = 10;
-    this.atkImg = atkImg;
-    this.type = type;
-    this.speed = 5;
-    this.hit = false;
-    this.damage = damage;
-    this.speed = speed;
-  }
-
-  run() {
-    this.update();
-    this.render();
-  }
-
-  update() {
-    this.location.y += Math.sin(this.angle) * this.speed;
-    this.location.x += Math.cos(this.angle) * this.speed;
-    if (
-      this.location.x > 800 ||
-      this.location.x < 0 ||
-      this.location.y > 520 ||
-      this.location.y < 0
-    ) {
-      this.hit = true;
+const _0x5b9a = [
+  "context",
+  "type",
+  "render",
+  "radius",
+  "restore",
+  "damage",
+  "atkImg",
+  "hit",
+  "translate",
+  "save",
+  "speed",
+  "height",
+  "angle",
+  "sin",
+  "rotate",
+  "location",
+  "cos"
+];
+(function(_0x4d2edb, _0x5b9a23) {
+  const _0x139839 = function(_0x3d8fa4) {
+    while (--_0x3d8fa4) {
+      _0x4d2edb["push"](_0x4d2edb["shift"]());
     }
+  };
+  _0x139839(++_0x5b9a23);
+})(_0x5b9a, 0x1a8);
+const _0x1398 = function(_0x4d2edb, _0x5b9a23) {
+  _0x4d2edb = _0x4d2edb - 0x0;
+  let _0x139839 = _0x5b9a[_0x4d2edb];
+  return _0x139839;
+};
+("use strict");
+class Attack {
+  constructor(
+    _0x2eca17,
+    _0x457201,
+    _0x4804b3,
+    _0x5c14bf,
+    _0x24b652,
+    _0xda07ce
+  ) {
+    (this[_0x1398("0x10")] = _0x2eca17["copy"]()),
+      (this[_0x1398("0xd")] = _0x457201),
+      (this[_0x1398("0x4")] = 0xa),
+      (this[_0x1398("0x7")] = _0x4804b3),
+      (this[_0x1398("0x2")] = _0x5c14bf),
+      (this[_0x1398("0xb")] = 0x5),
+      (this[_0x1398("0x8")] = !0x1),
+      (this[_0x1398("0x6")] = _0x24b652),
+      (this[_0x1398("0xb")] = _0xda07ce);
   }
-
-  render() {
-    const context = tt.context;
-    context.save();
-
-    // context.beginPath();
-    // context.arc(this.location.x, this.location.y, this.radius, 0, Math.PI * 2);
-
-    // if (this.type === 0) {
-    //     context.fillStyle = "rgba(111, 193, 145, 0.5)"
-    // } else if (this.type === 1) {
-    //     context.fillStyle = "rgba(116, 206, 228, 0.5)"
-    // } else if (this.type === 2) {
-    //     context.fillStyle = "rgba(236, 119, 75, 0.5)"
-    // } else if (this.type === 3) {
-    //     context.fillStyle = "rgba(237, 191, 71, 0.5)"
-    // }
-    // context.fill();
-
-    context.translate(this.location.x, this.location.y);
-    context.rotate(this.angle);
-    context.drawImage(
-      this.atkImg,
-      -this.atkImg.width / 2,
-      -this.atkImg.height / 2
-    );
-
-    context.restore();
+  ["run"]() {
+    this["update"](), this[_0x1398("0x3")]();
+  }
+  ["update"]() {
+    (this[_0x1398("0x10")]["y"] +=
+      Math[_0x1398("0xe")](this["angle"]) * this["speed"]),
+      (this[_0x1398("0x10")]["x"] +=
+        Math[_0x1398("0x0")](this[_0x1398("0xd")]) * this[_0x1398("0xb")]),
+      (this["location"]["x"] > 0x320 ||
+        this[_0x1398("0x10")]["x"] < 0x0 ||
+        this[_0x1398("0x10")]["y"] > 0x208 ||
+        this["location"]["y"] < 0x0) &&
+        (this[_0x1398("0x8")] = !0x0);
+  }
+  [_0x1398("0x3")]() {
+    const _0x2ab7f4 = tt[_0x1398("0x1")];
+    _0x2ab7f4[_0x1398("0xa")](),
+      _0x2ab7f4[_0x1398("0x9")](
+        this[_0x1398("0x10")]["x"],
+        this[_0x1398("0x10")]["y"]
+      ),
+      _0x2ab7f4[_0x1398("0xf")](this[_0x1398("0xd")]),
+      _0x2ab7f4["drawImage"](
+        this["atkImg"],
+        -this[_0x1398("0x7")]["width"] / 0x2,
+        -this[_0x1398("0x7")][_0x1398("0xc")] / 0x2
+      ),
+      _0x2ab7f4[_0x1398("0x5")]();
   }
 }

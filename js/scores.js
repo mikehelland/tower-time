@@ -1,130 +1,182 @@
-"use strict";
-
+const _0x15c8 = [
+  "input",
+  "val",
+  "loadFireBase",
+  "YOUR\x20NAME",
+  "tower-time",
+  "length",
+  "toUpperCase",
+  "forEach",
+  "preventDefault",
+  "push",
+  "ref",
+  "visibility",
+  "div",
+  "NAME",
+  "addScore",
+  "handleScores",
+  "SCORE",
+  "score-terminal",
+  "tower-time.appspot.com",
+  "add",
+  "querySelector",
+  "score-div",
+  "keys",
+  "scores",
+  "innerText",
+  "createElement",
+  "initializeApp",
+  "placeholder",
+  "name",
+  "appendChild",
+  "update",
+  "classList",
+  "score",
+  ".nameInput",
+  "value",
+  "sortScores",
+  "form",
+  "G-0BEHEHSDDL",
+  ".score-div",
+  "submit",
+  "tower-time.firebaseapp.com",
+  "addEventListener",
+  "innerHTML"
+];
+(function(_0x3340c0, _0x15c8e6) {
+  const _0x2696f2 = function(_0x41220e) {
+    while (--_0x41220e) {
+      _0x3340c0["push"](_0x3340c0["shift"]());
+    }
+  };
+  _0x2696f2(++_0x15c8e6);
+})(_0x15c8, 0x13b);
+const _0x2696 = function(_0x3340c0, _0x15c8e6) {
+  _0x3340c0 = _0x3340c0 - 0x0;
+  let _0x2696f2 = _0x15c8[_0x3340c0];
+  return _0x2696f2;
+};
+("use strict");
 class Scores {
   constructor() {
-    this.loadFireBase();
+    this[_0x2696("0x1f")]();
   }
-
-  loadFireBase() {
-    var firebaseConfig = {
-      authDomain: "tower-time.firebaseapp.com",
+  [_0x2696("0x1f")]() {
+    firebase[_0x2696("0xc")]({
+      authDomain: _0x2696("0x1a"),
       databaseURL: "https://tower-time.firebaseio.com",
-      projectId: "tower-time",
-      storageBucket: "tower-time.appspot.com",
+      projectId: _0x2696("0x21"),
+      storageBucket: _0x2696("0x4"),
       messagingSenderId: "114254327718",
       appId: "1:114254327718:web:7d6db95c7f120f99452967",
-      measurementId: "G-0BEHEHSDDL"
-    };
-    firebase.initializeApp(firebaseConfig);
-  }
-
-  update(name, score) {
-    firebase
-      .database()
-      .ref("scores")
-      .push({
-        name: name,
-        score: score
-      });
-  }
-
-  handleScores(screen, highscores) {
-    const scoreTerminal = document.createElement("div");
-    scoreTerminal.classList.add("score-terminal");
-    const rankList = document.createElement("ol");
-    const scoreList = document.createElement("ol");
-    const nameList = document.createElement("ol");
-    let lowestShowing;
-    highscores.on("value", snap => {
-      const data = snap.val();
-      const idArr = Object.keys(data);
-      const scores = [];
-      for (let i = 0; i < idArr.length; i++) {
-        scores.push([data[idArr[i]].score, data[idArr[i]].name]);
-      }
-      this.sortScores(scores);
-      let rankCount = 1;
-      scores.forEach(score => {
-        const rankLi = document.createElement("li");
-        const scoreLi = document.createElement("li");
-        const nameLi = document.createElement("li");
-        rankLi.innerText = rankCount++;
-        scoreLi.innerText = score[0];
-        nameLi.innerText = score[1];
-        rankList.appendChild(rankLi);
-        scoreList.appendChild(scoreLi);
-        nameList.appendChild(nameLi);
-      });
-      lowestShowing = scores[9][0];
+      measurementId: _0x2696("0x17")
     });
-
-    const rankDiv = document.createElement("div");
-    rankDiv.classList.add("score-div");
-    const rankTitle = document.createElement("h2");
-    rankTitle.innerText = "RANK";
-    rankDiv.appendChild(rankTitle);
-    rankDiv.appendChild(rankList);
-    scoreTerminal.appendChild(rankDiv);
-
-    const scoreDiv = document.createElement("div");
-    scoreDiv.classList.add("score-div");
-    const scoreTitle = document.createElement("h2");
-    scoreTitle.innerText = "SCORE";
-    scoreDiv.appendChild(scoreTitle);
-    scoreDiv.appendChild(scoreList);
-    scoreTerminal.appendChild(scoreDiv);
-
-    const nameDiv = document.createElement("div");
-    nameDiv.classList.add("score-div");
-    const nameTitle = document.createElement("h2");
-    nameTitle.innerText = "NAME";
-    nameDiv.appendChild(nameTitle);
-    nameDiv.appendChild(nameList);
-    scoreTerminal.appendChild(nameDiv);
-
-    screen.appendChild(scoreTerminal);
-    const form = document.createElement("form");
-    const input = document.createElement("input");
-    input.classList.add("nameInput");
-    input.placeholder = "YOUR NAME";
-    input.maxLength = 3;
-    form.appendChild(input);
-    screen.appendChild(form);
-    form.addEventListener("submit", event =>
-      this.addScore(event, lowestShowing)
-    );
   }
-
-  addScore(event, lowestShowing) {
-    event.preventDefault();
-    const name = document.querySelector(".nameInput");
-    const scoreList = document.querySelectorAll(".score-div");
-    if (tt.score >= lowestShowing) {
-      scoreList.forEach(div => {
-        div.querySelector("ol").innerHTML = ""
-      })
-    }
-    name.style.visibility = "hidden";
-    if (tt.f === tt.score) {
-      this.update(name.value.toUpperCase(), tt.f);
-    } else {
-      window.location.reload(false);
-    }
+  [_0x2696("0x10")](_0x3ea881, _0x2695ca) {
+    firebase["database"]()
+      [_0x2696("0x27")](_0x2696("0x9"))
+      ["push"]({ name: _0x3ea881, score: _0x2695ca });
   }
-
-  sortScores(arr) {
-    let swapped;
+  [_0x2696("0x1")](_0x5f739d, _0x131ed3) {
+    const _0x351dfd = document[_0x2696("0xb")](_0x2696("0x29"));
+    _0x351dfd[_0x2696("0x11")][_0x2696("0x5")](_0x2696("0x3"));
+    const _0x23272c = document[_0x2696("0xb")]("ol"),
+      _0xa4a60e = document[_0x2696("0xb")]("ol"),
+      _0x1db6ea = document[_0x2696("0xb")]("ol");
+    let _0x32c071;
+    _0x131ed3["on"](_0x2696("0x14"), _0x3e7b5f => {
+      const _0x8431e0 = _0x3e7b5f[_0x2696("0x1e")](),
+        _0x414ae2 = Object[_0x2696("0x8")](_0x8431e0),
+        _0x1e6377 = [];
+      for (
+        let _0x1a6944 = 0x0;
+        _0x1a6944 < _0x414ae2[_0x2696("0x22")];
+        _0x1a6944++
+      )
+        _0x1e6377[_0x2696("0x26")]([
+          _0x8431e0[_0x414ae2[_0x1a6944]][_0x2696("0x12")],
+          _0x8431e0[_0x414ae2[_0x1a6944]][_0x2696("0xe")]
+        ]);
+      this["sortScores"](_0x1e6377);
+      let _0x25aa2b = 0x1;
+      _0x1e6377[_0x2696("0x24")](_0x1c521d => {
+        const _0x53a867 = document["createElement"]("li"),
+          _0x5d5055 = document[_0x2696("0xb")]("li"),
+          _0x5a5d36 = document[_0x2696("0xb")]("li");
+        (_0x53a867[_0x2696("0xa")] = _0x25aa2b++),
+          (_0x5d5055["innerText"] = _0x1c521d[0x0]),
+          (_0x5a5d36[_0x2696("0xa")] = _0x1c521d[0x1]),
+          _0x23272c[_0x2696("0xf")](_0x53a867),
+          _0xa4a60e["appendChild"](_0x5d5055),
+          _0x1db6ea["appendChild"](_0x5a5d36);
+      }),
+        (_0x32c071 = _0x1e6377[0x9][0x0]);
+    });
+    const _0x470085 = document[_0x2696("0xb")](_0x2696("0x29"));
+    _0x470085[_0x2696("0x11")][_0x2696("0x5")](_0x2696("0x7"));
+    const _0x445ab0 = document["createElement"]("h2");
+    (_0x445ab0[_0x2696("0xa")] = "RANK"),
+      _0x470085["appendChild"](_0x445ab0),
+      _0x470085[_0x2696("0xf")](_0x23272c),
+      _0x351dfd[_0x2696("0xf")](_0x470085);
+    const _0x2c9388 = document[_0x2696("0xb")](_0x2696("0x29"));
+    _0x2c9388["classList"][_0x2696("0x5")](_0x2696("0x7"));
+    const _0x1d1839 = document[_0x2696("0xb")]("h2");
+    (_0x1d1839[_0x2696("0xa")] = _0x2696("0x2")),
+      _0x2c9388[_0x2696("0xf")](_0x1d1839),
+      _0x2c9388[_0x2696("0xf")](_0xa4a60e),
+      _0x351dfd[_0x2696("0xf")](_0x2c9388);
+    const _0x40816b = document[_0x2696("0xb")]("div");
+    _0x40816b[_0x2696("0x11")][_0x2696("0x5")](_0x2696("0x7"));
+    const _0x3e59c6 = document[_0x2696("0xb")]("h2");
+    (_0x3e59c6[_0x2696("0xa")] = _0x2696("0x2a")),
+      _0x40816b[_0x2696("0xf")](_0x3e59c6),
+      _0x40816b[_0x2696("0xf")](_0x1db6ea),
+      _0x351dfd["appendChild"](_0x40816b),
+      _0x5f739d["appendChild"](_0x351dfd);
+    const _0x47b310 = document[_0x2696("0xb")](_0x2696("0x16")),
+      _0x264036 = document[_0x2696("0xb")](_0x2696("0x1d"));
+    _0x264036[_0x2696("0x11")][_0x2696("0x5")]("nameInput"),
+      (_0x264036[_0x2696("0xd")] = _0x2696("0x20")),
+      (_0x264036["maxLength"] = 0x3),
+      _0x47b310[_0x2696("0xf")](_0x264036),
+      _0x5f739d["appendChild"](_0x47b310),
+      _0x47b310[_0x2696("0x1b")](_0x2696("0x19"), _0x19a873 =>
+        this[_0x2696("0x0")](_0x19a873, _0x32c071)
+      );
+  }
+  ["addScore"](_0xa2b03b, _0x2610c7) {
+    _0xa2b03b[_0x2696("0x25")]();
+    const _0x292dac = document[_0x2696("0x6")](_0x2696("0x13")),
+      _0x41a38d = document["querySelectorAll"](_0x2696("0x18"));
+    tt[_0x2696("0x12")] >= _0x2610c7 &&
+      _0x41a38d["forEach"](_0x2f5941 => {
+        _0x2f5941[_0x2696("0x6")]("ol")[_0x2696("0x1c")] = "";
+      }),
+      (_0x292dac["style"][_0x2696("0x28")] = "hidden"),
+      tt["f"] === tt[_0x2696("0x12")]
+        ? this[_0x2696("0x10")](
+            _0x292dac[_0x2696("0x14")][_0x2696("0x23")](),
+            tt["f"]
+          )
+        : window["location"]["reload"](!0x1);
+  }
+  [_0x2696("0x15")](_0x52584b) {
+    let _0x53d467;
     do {
-      swapped = false;
-      for (let i = 0; i < arr.length - 1; i++) {
-        if (arr[i][0] < arr[i + 1][0]) {
-          let tmp = arr[i];
-          arr[i] = arr[i + 1];
-          arr[i + 1] = tmp;
-          swapped = true;
+      _0x53d467 = !0x1;
+      for (
+        let _0x489e64 = 0x0;
+        _0x489e64 < _0x52584b[_0x2696("0x22")] - 0x1;
+        _0x489e64++
+      )
+        if (_0x52584b[_0x489e64][0x0] < _0x52584b[_0x489e64 + 0x1][0x0]) {
+          let _0x3c5736 = _0x52584b[_0x489e64];
+          (_0x52584b[_0x489e64] = _0x52584b[_0x489e64 + 0x1]),
+            (_0x52584b[_0x489e64 + 0x1] = _0x3c5736),
+            (_0x53d467 = !0x0);
         }
-      }
-    } while (swapped);
-    return arr;
+    } while (_0x53d467);
+    return _0x52584b;
   }
 }
