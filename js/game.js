@@ -323,7 +323,7 @@ class Game {
     );
   }
   [_0x4924("0x7")]() {
-    if (!music.player.playing) music.play()
+    if (!music.playing) music.play()
     if (!tt[_0x4924("0x4b")])
       return (
         (tt["gameStarted"] = !0x0),
